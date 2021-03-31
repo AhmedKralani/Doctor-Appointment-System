@@ -21,6 +21,10 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 });
 
+Route::get('/test', function () {
+    return view('test');
+});
+
 
 Auth::routes();
 
