@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\User;
 
 class DoctorController extends Controller
 {
@@ -34,7 +35,18 @@ class DoctorController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validateStore($request);
+        $data = $request->all();
+        $image = $request->file('image');
+        $name = $image->hashName();
+        $destiantion = public_path('/images');
+        $image->move($destiantion, $name);
+
+        $data['image'] = $name;
+        $data['password'] = bcrypt($request->password);
+        User::create($data);
+
+        return redirect()->back()->with('message', 'Doctor added successfully');
     }
 
     /**
@@ -80,5 +92,22 @@ class DoctorController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function validateStore($request)
+    {
+        return $this->validate($request, [
+            'name' => 'required',
+            'email' => 'required|unique:users',
+            'password' => 'required|min:6|max:25',
+            'gender' => 'required',
+            'education' => 'required',
+            'address' => 'required',
+            'department' => 'required',
+            'phone_number' => 'required|numeric',
+            'image' => 'required|mimes:jpeg,jpg,png',
+            'role_id' => 'required',
+            'description' => 'required'
+        ]);
     }
 }
