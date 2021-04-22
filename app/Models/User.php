@@ -51,5 +51,13 @@ class User extends Authenticatable
     public function role() {
         return $this->hasOne('App\Role','id','role_id');
     }
+    public function userAvatar($request){
+        $image = $request->file('image');
+        $name = $image->hashName();
+        $destiantion = public_path('/images');
+        $image->move($destiantion, $name);
+        return $name;
+    }
+
 }
    
