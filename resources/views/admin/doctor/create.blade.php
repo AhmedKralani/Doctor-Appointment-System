@@ -30,7 +30,7 @@
 <div class="row justify-content-center">
     <div class="col-lg-10">
         @if(Session::has('message'))
-            <div class="alert alert-success">
+            <div class="alert bg-success alert-success text-white">
                 {{Session::get('message')}}
             </div>
         @endif

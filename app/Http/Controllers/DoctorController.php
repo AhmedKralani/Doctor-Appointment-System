@@ -38,10 +38,7 @@ class DoctorController extends Controller
     {
         $this->validateStore($request);
         $data = $request->all();
-        $image = $request->file('image');
-        $name = $image->hashName();
-        $destiantion = public_path('/images');
-        $image->move($destiantion, $name);
+        $name = (new User)->userAvatar($request);
 
         $data['image'] = $name;
         $data['password'] = bcrypt($request->password);
@@ -82,7 +79,25 @@ class DoctorController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validateUpdate($request,$id);
+        $data = $request->all();
+        $user = User::find($id);
+        $imageName = $user->image;
+        if($request->hasFile('image')){
+          $imageName = (new User)->userAvatar($request);
+          unlink(public_path('images/'.$user->image));
+        }
+        $data['image'] = $imageName;
+        if($request->password){
+            $data['password'] = bcrypt($request->password);
+        }
+        else{
+            $data['password']= $userPassword;
+        }
+        $user->update($data);
+        return redirect()->route('doctor.index')->with('message', 'Doctor updated
+         successfully');
+
     }
 
     /**
@@ -112,4 +127,22 @@ class DoctorController extends Controller
             'description' => 'required'
         ]);
     }
+
+    public function validateUpdate($request,$id)
+    {
+        return $this->validate($request, [
+            'name' => 'required',
+            'email' => 'required|unique:users,email,'.$id,
+            
+            'gender' => 'required',
+            'education' => 'required',
+            'address' => 'required',
+            'department' => 'required',
+            'phone_number' => 'required|numeric',
+            'image' => 'mimes:jpeg,jpg,png',
+            'role_id' => 'required',
+            'description' => 'required'
+        ]);
+    }
+
 }
