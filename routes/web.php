@@ -26,7 +26,9 @@ Route::group(['middleware'=>['auth','admin']],function(){
 Route::resource('doctor', 'DoctorController');
 Route::resource('doctor', 'App\Http\Controllers\DoctorController');
 });
-Route::resource('appointment','App\Http\Controllers\AppointmentController');
-Route::post('/appointment/check','AppointmentController@check')->name('appointment.check');
-Route::post('/appointment/update','AppointmentController@updateTime')->name('update');
 
+Route::group(['middleware'=>['auth','doctor']],function(){
+    Route::resource('appointment','App\Http\Controllers\AppointmentController');
+    Route::post('/appointment/check','App\Http\Controllers\AppointmentController@check')->name('appointment.check');
+    Route::post('/appointment/update','App\Http\Controllers\AppointmentController@updateTime')->name('update');
+});
