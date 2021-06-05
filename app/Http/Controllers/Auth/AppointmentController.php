@@ -111,7 +111,6 @@ class AppointmentController extends Controller
         $appointmentId = $appointment->id;
         $times = Time::where('appointment_id',$appointmentId)->get();
 
-       
         return view('admin.appointment.index',compact('times','appointmentId','date'));
     }
 
