@@ -216,6 +216,34 @@
 
 </div>
 </form>
+
+@else
+<h3>Your appointment time list: {{$myappointments->count()}}</h3>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Creator</th>
+        <th scope="col">Date</th>
+        <th scope="col">View/Update</th>
+      </tr>
+    </thead>
+    <tbody>
+      @foreach($myappointments as $appoinment)
+      <tr>
+        <th scope="row"></th>
+        <td>{{$appoinment->doctor->name}}</td>
+        <td>{{$appoinment->date}}</td>
+        <td>
+              <form action="{{route('appointment.check')}}" method="post">@csrf
+                <input type="hidden" name="date" value="{{$appoinment->date}}">
+                <button type="submit" class="btn btn-primary">View/Update</button>
+              </form>
+        </td>
+      </tr>
+      @endforeach
+    </tbody>
+  </table>
 @endif
 
 <style type="text/css">

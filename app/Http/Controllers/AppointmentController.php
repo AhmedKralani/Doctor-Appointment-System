@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Appointment;
+use App\Models\Appointment;
 use App\Time;
 
 class AppointmentController extends Controller
@@ -15,7 +15,8 @@ class AppointmentController extends Controller
      */
     public function index()
     {
-        return view('admin.appointment.index');
+        $myappointments = Appointment::latest()->where('user_id', auth()->user()->id)->get();
+        return view('admin.appointment.index', compact('myappointments'));
     }
 
     /**
