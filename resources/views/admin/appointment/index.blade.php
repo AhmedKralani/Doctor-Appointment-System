@@ -36,6 +36,11 @@
                 {{Session::get('message')}}
             </div>
         @endif
+        @if(Session::has('errmessage'))
+            <div class="alert bg-danger alert-success text-white" role="alert">
+                {{Session::get('errmessage')}}
+            </div>
+        @endif
         @foreach($errors->all() as $error)
             <div class="alert alert-danger">
                 {{$error}}
@@ -64,6 +69,8 @@
         </div>
     </div>
 </form>
+@if(Route::is('appointment.check'))
+  <form action="{{route('update')}}" method="post">@csrf
     <div class="card">
         <div class="card-header">
             Choose AM time
@@ -77,6 +84,7 @@
              
                
               <tbody>
+              <input type="hidden" name="appoinmentId" value="{{$appointmentId}}">
                 <tr>
                   <th scope="row">1</th>
                   <td><input type="checkbox" name="time[]"  value="6am" @if(isset($times)){{$times->contains('time','6am')?'checked':''}}@endif>6am</td>
@@ -207,6 +215,8 @@
     </div>
 
 </div>
+</form>
+@endif
 
 <style type="text/css">
     input[type="checkbox"]{
