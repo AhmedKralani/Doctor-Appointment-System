@@ -37,10 +37,9 @@
         <div class="card">
             <div class="card-header"><h3>Confirm delete</h3></div>
             <div class="card-body">
-            <img src="{{asset('images')}}/{{$user->image}} width="120">
+            <img src="{{asset('images')}}/{{$user->image}}" width="120">
             <h2> {{$user->name}} </h2>
-             <form class="forms-sample" action="
-                {{route('doctor.destroy',[$user->id])}}" method="post" >@csrf
+             <form class="forms-sample" action="{{route('doctor.destroy',[$user->id])}}" method="post" >@csrf
                    @method('DELETE')
 
 

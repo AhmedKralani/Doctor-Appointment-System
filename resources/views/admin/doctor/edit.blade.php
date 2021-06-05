@@ -117,14 +117,9 @@
                        
 
 
-
-                            @foreach(App\Department::all() as $department)
-                            <option value="{{$department->department}}" @if($user->department==$department->department)selected @endif>{{$department->department}}</option> 
+                            @foreach(['Cardiologist','Family-Physician','Ophthalmologist','Neurologist'] as $department)
+                            <option value="{{$department}}" @if($user->department==$department)selected @endif>{{$department}}</option> 
                             @endforeach
-
-
-                         
-
                         </select>
 
 
@@ -171,7 +166,7 @@
                         <label>Role</label>
                         <select name="role_id" class="form-control @error('role_id') is-invalid @enderror">
                             <option value="">Please select role</option>
-                            @foreach(App\Role::where('name','!=','patient')->get() as $role)
+                            @foreach(App\Models\Role::where('name','!=','patient')->get() as $role)
           <option value="{{$role->id}}"@if($user->role_id==$role->id)selected @endif>{{$role->name}}</option>
                             @endforeach
                             
