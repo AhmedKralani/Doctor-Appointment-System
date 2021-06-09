@@ -10,8 +10,8 @@
      <h2>Create an account & Book your appointment</h2>
      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi tempora cupiditate veniam saepe, atque laborum. Impedit, asperiores? Dignissimos aut error temporibus, nemo beatae debitis, sed obcaecati at, nobis magnam earum!</p>
      <div class="mt-5">
-     <button class="btn btn-success">Register as Patient</button>
-     <button class="btn btn-secondary">Login</button>
+     <a href="{{url('/register')}}"> <button class="btn btn-success">Register as Patient</button></a>
+     <a href="{{url('/login')}}"> <button class="btn btn-secondary">Login</button></a>
 
      </div>
      </div>
@@ -48,21 +48,27 @@
 </tr>
 </thead>
 <tbody>
+@forelse($doctors as $doctor)
     <tr>
     <th scope="row">1</th>
  <td>
-     <img src="/doctor/doctor.png" width="100px" style="border-radius:50%;">
+     <img src="{{asset('images')}}/{{$doctor->doctor->image}}" width="100px" style="border-radius:50%;">
 </td>
 <td>
-    Name of doctor
+{{$doctor->doctor->name}}
 </td>
 <td>
-Cardiologist
+{{$doctor->doctor->department}}
 </td>
 <td>
-    <button class="btn btn-success">Book appointment</button>
+ <a href="{{route('create.appointment',[$doctor->user_id,$doctor->date])}}">   <button class="btn btn-success">Book appointment</button></a>
 </td>
 </tr>
+@empty
+<td>No doctors available today</td>
+@endforelse
+
+
 </tbody>
 </table>
 </div>
