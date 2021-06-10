@@ -24,16 +24,24 @@
                             @foreach($times as $time)
                                 <div class="col-md-3">
                                     <label class="btn btn-outline-primary">
-                                        <input type="radio" name="status" value="1">
+                                        <input type="radio" name="time" value="{{$time->time}}">
                                         <span>{{$time->time}}</span>
                                     </label> 
                                 </div>
+                                <input type="hidden" name="doctorId" value="{{$doctor_id}}">
+                                <input type="hidden" name="appointmentId" value="{{$time->appointment_id}}">
                             @endforeach
                         </div>
                     </div>
                 </div>
                 <div class="card-footer">
-                    <button type="submit" class="btn btn-success" style="width: 100%;">Book Appointment</button>
+                    @if(Auth::check())
+                        <button type="submit" class="btn btn-success" style="width: 100%;">Book Appointment</button>
+                    @else
+                        <p>Please login to make an appointment</p>
+                        <a href="/register">Register</a>
+                        <a href="/login">Login</a>
+                    @endif
                 </div>
             </form>
         </div>
