@@ -19,6 +19,7 @@ Route::get('/','App\Http\Controllers\FrontendController@index');
 Route::get('/new-appointment/{doctorId}/{date}','App\Http\Controllers\FrontendController@show')
 ->name('create.appointment');
 
+Route::post('/book/appointment', 'App\Http\Controllers\FrontendController@store')->name('book.appointment')->middleware('auth');
 
 Route::get('/dashboard', "App\Http\Controllers\DashboardController@index");
 Auth::routes();
