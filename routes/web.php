@@ -13,10 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/','FrontendController@index');
+Route::get('/','App\Http\Controllers\FrontendController@index');
 
 
-Route::get('/new-appointment/{doctorId}/{date}','FrontendController@show')
+Route::get('/new-appointment/{doctorId}/{date}','App\Http\Controllers\FrontendController@show')
 ->name('create.appointment');
 
 
