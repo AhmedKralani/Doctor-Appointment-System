@@ -17,22 +17,23 @@
      </div>
     </div>
     <hr>
-<div class="card">
-<div class="card-body">
-<div class="card-header">Find Doctors</div>
-<div class="card-body">
-<div class="row">
-<div class="col-md-8">
-<input type="text" name="date" class="form-control" id="datepicker">
-</div> 
-<div class="cold-md-4">
-<button class="btn btn-primary" type="submit">Find Doctors</button>
-</div>
-</div>
-</div>
-</div>
-</div>
-
+    <form action="{{url('/')}}" method="GET">
+        <div class="card">
+            <div class="card-body">
+                <div class="card-header">Find Doctors</div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <input type="text" name="date" class="form-control" id="datepicker">
+                        </div> 
+                        <div class="cold-md-4">
+                            <button class="btn btn-primary" type="submit">Find Doctors</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
 <div class="card">
 <div class="card-body">
 <div class="card-header">Doctors</div>

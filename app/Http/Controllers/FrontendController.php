@@ -12,7 +12,11 @@ class FrontendController extends Controller
     public function index()
     {
         date_default_timezone_set('Europe/Skopje');
-        $doctors = Appointment::where('date',date('d-m-Y'))->get();
+        if (request('date')) {
+            $doctors = $this->findDoctorsBasedOnDate(request('date'));
+            return view('welcome',compact('doctors'));
+        }
+        $doctors = Appointment::where('date', date('d-m-Y'))->get();
         return view('welcome',compact('doctors'));
     }
 
@@ -22,5 +26,11 @@ class FrontendController extends Controller
         $times = Time::where('appointment_id', $appointment->id)->where('status', 0)->get();
         $user = User::where('id', $doctorId)->first();
         return view('appointment',compact('times', 'date', 'user'));
+    }
+
+    public function findDoctorsBasedOnDate($date)
+    {
+        $doctors = Appointment::where('date', $date)->get();
+        return $doctors;
     }
 }
