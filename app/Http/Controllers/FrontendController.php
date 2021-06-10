@@ -40,7 +40,16 @@ class FrontendController extends Controller
 
 public function store(Request $request)
 {
+    date_default_timezone_set('Europe/Skopje');
+
+
     $request->validate(['time'=>'required']);
+    $check = $this->checkBookingTimeInterval();
+    if($check){
+        return redirect()->back()->with('errmessage','You already made an appointment.
+        Please wait to make next appointment');
+    }
+
     Booking:create([
         'user_id'=> auth()->user()->id,
         'doctor_id'=> $request->doctorId,
@@ -55,7 +64,13 @@ public function store(Request $request)
     return redirect()->back()->with('message','Your appointment was booked');
 }
 
-
+public function checkBookingTimeInterval()
+{
+    return Booking::orderby('id','desc')
+    ->where('user_id',auth()->user()->id)
+    ->whereDate('created_at',date('d-m-Y'))
+    ->exist();
+}
 
 
 }
