@@ -33,7 +33,13 @@
                     </div>
                 </div>
                 <div class="card-footer">
-                    <button type="submit" class="btn btn-success" style="width: 100%;">Book Appointment</button>
+                    @if(Auth::check())
+                        <button type="submit" class="btn btn-success" style="width: 100%;">Book Appointment</button>
+                    @else
+                        <p>Please login to make an appointment</p>
+                        <a href="/register">Register</a>
+                        <a href="/login">Login</a>
+                    @endif
                 </div>
             </form>
         </div>
