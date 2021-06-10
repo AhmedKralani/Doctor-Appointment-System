@@ -20,9 +20,7 @@ Route::get('/new-appointment/{doctorId}/{date}','App\Http\Controllers\FrontendCo
 ->name('create.appointment');
 
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-});
+Route::get('/dashboard', "App\Http\Controllers\DashboardController@index");
 Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
