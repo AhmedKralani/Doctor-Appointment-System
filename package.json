@@ -10,8 +10,12 @@
         "production": "mix --production"
     },
     "devDependencies": {
+        "@vue/eslint-plugin": "^4.2.0",
         "axios": "^0.21",
         "bootstrap": "^4.0.0",
+        "eslint": "^7.28.0",
+        "eslint-config-vue": "^2.0.2",
+        "eslint-plugin-vue": "^7.11.0",
         "jquery": "^3.2",
         "laravel-mix": "^6.0.6",
         "lodash": "^4.17.19",
@@ -23,5 +27,10 @@
         "vue": "^2.5.17",
         "vue-loader": "^15.9.5",
         "vue-template-compiler": "^2.6.10"
+    },
+    "dependencies": {
+        "moment": "^2.29.1",
+        "vue-spinner": "^1.0.4",
+        "vuejs-datepicker": "^1.6.2"
     }
 }
