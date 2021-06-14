@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Appointment;
-use App\Time;
+use App\Models\Time;
 
 class AppointmentController extends Controller
 {

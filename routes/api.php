@@ -17,5 +17,5 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
-Route::get('/doctors/today','FrontendController@doctorToday');
-Route::post('/finddoctors','FrontendController@findDoctors');
+Route::get('/doctors/today', 'App\Http\Controllers\FrontendController@doctorToday');
+Route::post('/finddoctors', 'App\Http\Controllers\FrontendController@findDoctors');
