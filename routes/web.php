@@ -23,6 +23,11 @@ Route::post('/book/appointment', 'App\Http\Controllers\FrontendController@store'
 
 Route::get('/my-booking', 'App\Http\Controllers\FrontendController@myBookings')->name('my.booking')->middleware('auth');
 
+
+Route::get('/user-profile','App\Http\Controllers\ProfileController@index');
+Route::post('/profile','App\Http\Controllers\ProfileController@store')->name('profile.store');
+Route::post('/profile-pic','App\Http\Controllers\ProfileController@profilePic')->name('profile.pic')->middleware('auth');
+
 Route::get('/dashboard', "App\Http\Controllers\DashboardController@index");
 Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
