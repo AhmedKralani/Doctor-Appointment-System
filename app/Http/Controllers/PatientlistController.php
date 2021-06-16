@@ -19,4 +19,16 @@ class PatientlistController extends Controller
         $bookings = Booking::latest()->where('date',date('d-m-Y'))->get();
         return view('admin.patientlist.index',compact('bookings'));
     }
+
+    public function toogleStatus($id)
+    {
+        $booking = Booking::find($id);
+        $booking->status =! $booking->status;
+        $booking->save();
+        return redirect()->back();
+
+
+    }
+
+
 }
