@@ -15,9 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/','App\Http\Controllers\FrontendController@index');
 
-
-Route::get('/new-appointment/{doctorId}/{date}','App\Http\Controllers\FrontendController@show')
-->name('create.appointment');
+Route::get('/new-appointment/{doctorId}/{date}','App\Http\Controllers\FrontendController@show')->name('create.appointment');
 
 Route::group(['middleware'=>['auth','patient']],function(){
 
@@ -25,9 +23,8 @@ Route::post('/book/appointment', 'App\Http\Controllers\FrontendController@store'
 
 Route::get('/my-booking', 'App\Http\Controllers\FrontendController@myBookings')->name('my.booking');
 
-
 Route::get('/user-profile','App\Http\Controllers\ProfileController@index');
-Route::post('/profile','App\Http\Controllers\ProfileController@store')->name('profile.store');
+Route::post('/user-profile','App\Http\Controllers\ProfileController@store')->name('profile.store');
 Route::post('/profile-pic','App\Http\Controllers\ProfileController@profilePic')->name('profile.pic');
 });
 
@@ -38,9 +35,8 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::group(['middleware'=>['auth','admin']],function(){
 Route::resource('doctor', 'App\Http\Controllers\DoctorController');
 Route::get('/patients','App\Http\Controllers\PatientlistController@index')->name('patient');
+Route::get('/patients/all','App\Http\Controllers\PatientlistController@allTimeAppointment')->name('all.appointments');
 Route::get('/status/update/{id}','App\Http\Controllers\PatientlistController@toogleStatus')->name('update.status');
-
-
 });
 
 Route::group(['middleware'=>['auth','doctor']],function(){
