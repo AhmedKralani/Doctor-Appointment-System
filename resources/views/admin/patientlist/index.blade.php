@@ -14,17 +14,14 @@
                  Filter:
                  <div class="row">
                  <div class="col-md-10">
-                 <input type="text" class="form-control datetimepicker-input" 
-                 id="datepicker" data-toggle="datetimepicker" 
-                 data-target="#datepicker" name="date">
+                 <input type="text" class="form-control datetimepicker-input" id="datepicker" data-toggle="datetimepicker" data-target="#datepicker" name="date">
                  </div>
                  <div class="col-md-2">
                     <button type="submit" class="btn btn-primary">Search</button>
                  </div>
                 </div>
-                </form>
                 </div>
-        
+                </form>
 
                 <div class="card-body">
                 <table class="table table-striped">
@@ -61,7 +58,7 @@
                                      </a>
                                     @else 
                                     <a href="{{route('update.status',[$booking->id])}}">
-                                        <button class="btn btn-success">Cheked</button>
+                                        <button class="btn btn-success">Checked</button>
                                         </a>
                                     @endif
                                 </td>

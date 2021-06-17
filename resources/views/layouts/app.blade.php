@@ -108,7 +108,7 @@
     var dateToday = new Date();
         $(function() {
             $("#datepicker").datepicker({
-                dateFormat:"dd-mm-yy",
+                dateFormat:"yy-mm-dd",
                 showButtonPanel:true,
                 numberOfMonths:2,
                 minDate:dateToday,

@@ -16,7 +16,7 @@ class PatientlistController extends Controller
         return view('admin.patientlist.index',compact('bookings'));
         }
         
-        $bookings = Booking::latest()->where('date',date('d-m-Y'))->get();
+        $bookings = Booking::latest()->where('date',date('Y-m-d'))->get();
         return view('admin.patientlist.index',compact('bookings'));
     }
 
@@ -26,9 +26,11 @@ class PatientlistController extends Controller
         $booking->status =! $booking->status;
         $booking->save();
         return redirect()->back();
-
-
     }
 
-
+    public function allTimeAppointment()
+    {
+        $bookings = Booking::latest()->paginate(20);
+        return view('admin.patientlist.index', compact('bookings'));
+    }
 }

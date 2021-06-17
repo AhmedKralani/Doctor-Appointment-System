@@ -18,7 +18,7 @@ class FrontendController extends Controller
             $doctors = $this->findDoctorsBasedOnDate(request('date'));
             return view('welcome',compact('doctors'));
         }
-        $doctors = Appointment::where('date', date('d-m-Y'))->get();
+        $doctors = Appointment::where('date', date('Y-m-d'))->get();
         return view('welcome',compact('doctors'));
     }
 
@@ -83,7 +83,7 @@ class FrontendController extends Controller
     {
         return Booking::orderby('id','desc')
         ->where('user_id',auth()->user()->id)
-        ->whereDate('created_at',date('d-m-Y'))
+        ->whereDate('created_at',date('Y-m-d'))
         ->exists();
     }
 
