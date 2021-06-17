@@ -50,6 +50,14 @@
                                         </div>
                                     </div>
                                 @endif
+                                <div class="nav-item active">
+                                    <a  onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();"
+                                                     href="{{ route('logout') }}"><i class="ik ik-power dropdown-icon"></i><span>Logout</span></a>
+                                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                                      @csrf
+                                                     </form>
+                                </div>
                             </nav>
                         </div>
                     </div>
