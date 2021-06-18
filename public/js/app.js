@@ -59873,6 +59873,7 @@ var render = function() {
                   expression: "index == inputs.length - 1"
                 }
               ],
+              staticStyle: { color: "green" },
               attrs: { href: "" },
               on: {
                 click: function($event) {
@@ -59881,7 +59882,7 @@ var render = function() {
                 }
               }
             },
-            [_vm._v("Add More")]
+            [_vm._v("Add More Medicine")]
           ),
           _vm._v(" "),
           _c(
