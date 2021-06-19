@@ -26,6 +26,7 @@ Route::get('/my-booking', 'App\Http\Controllers\FrontendController@myBookings')-
 Route::get('/user-profile','App\Http\Controllers\ProfileController@index');
 Route::post('/user-profile','App\Http\Controllers\ProfileController@store')->name('profile.store');
 Route::post('/profile-pic','App\Http\Controllers\ProfileController@profilePic')->name('profile.pic');
+Route::get('/my-prescription','App\Http\Controllers\FrontendController@myPrescription')->name('my.prescription');
 });
 
 Route::get('/dashboard', "App\Http\Controllers\DashboardController@index");
@@ -45,4 +46,8 @@ Route::group(['middleware'=>['auth','doctor']],function(){
     Route::post('/appointment/update','App\Http\Controllers\AppointmentController@updateTime')->name('update');
 
     Route::get('patient-today','App\Http\Controllers\PrescriptionController@index')->name('patients.today');
+
+    Route::post('/prescription','App\Http\Controllers\PrescriptionController@store')->name('prescription');
+    Route::get('/prescription/{userId}/{date}','App\Http\Controllers\PrescriptionController@show')->name('prescription.show');
+    Route::get('/prescribed-patients','App\Http\Controllers\PrescriptionController@patientsFromPrescription')->name('prescribed.patients');
 });
