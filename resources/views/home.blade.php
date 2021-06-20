@@ -8,7 +8,8 @@
                 <div class="card-header">Dashboard</div>
 
                 <div class="card-body">
-                    <add-btn></add-btn>
+                You are logged in as 
+                  {{Auth()->user()->name}}
                 </div>
             </div>
         </div>
