@@ -17,8 +17,8 @@
                           <th scope="col">Doctor</th>
                           <th scope="col">Disease</th>
                           <th scope="col">Symptoms</th>
-                          <th scope="col">medicine</th>
-                          <th scope="col">procedure to use medicine</th>
+                          <th scope="col">Medicine</th>
+                          <th scope="col">Procedure to use medicine</th>
                           <th scope="col">Doctor Feedback</th>
                         </tr>
                       </thead>

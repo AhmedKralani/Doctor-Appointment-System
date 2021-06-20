@@ -54,16 +54,15 @@
                                 </td>
                                 <td>
                                   <!-- Button trigger modal -->
-                                if(!App\Prescription::where('date',date('Y-m-d'))->where('doctor_id',auth()->user()->id)->where('user_id',$booking->user->id)
-                                ->exists())
-                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal{{$booking->date}}">
-                                Write prescription
-                              </button>
-                              @include('prescription.form')
+                                @if(!App\Models\Prescription::where('date',date('Y-m-d'))->where('doctor_id',auth()->user()->id)->where('user_id',$booking->user->id)->exists())
+                                  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal{{$booking->user_id}}">
+                                    Write prescription
+                                  </button>
+                                  @include('prescription.form')
 
-                              @else
-                              <a href="{{route('prescription.show',[$booking->user_id,$booking->date])}}" class="btn btn-secondary">View prescription</a>
-                              @endif
+                                @else
+                                  <a href="{{route('prescription.show',[$booking->user_id,$booking->date])}}" class="btn btn-secondary">View prescription</a>
+                                @endif
 
                               
                                 </td>

@@ -46,8 +46,8 @@
                                     <div class="nav-item has-sub">
                                         <a href="javascript:void(0)"><i class="ik ik-layers"></i><span>Patients</span> <span class="badge badge-danger"></span></a>
                                         <div class="submenu-content">
-                                        <a href="{{route('patients.today')}}" class="menu-item">Patients(today)</a>
-                                        <a href="{{route('prescribed.patients')}}" class="menu-item">All patients(prescription)</a>
+                                        <a href="{{route('patients.today')}}" class="menu-item">Patients (today)</a>
+                                        <a href="{{route('prescribed.patients')}}" class="menu-item">All patients (prescription)</a>
                                             
                                         </div>
                                     </div>
