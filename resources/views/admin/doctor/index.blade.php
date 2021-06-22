@@ -78,8 +78,6 @@
 
                             </div>
                         </td>
-                        <td>x</td>
-
                     </tr>
            
                     <!-- View Modal -->

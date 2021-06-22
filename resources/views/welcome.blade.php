@@ -15,8 +15,16 @@
             cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
             proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </p>
             <div class="mt-5">
-               <a href="{{url('/register')}}"> <button class="btn btn-success">Register as Patient</button></a>
-                <a href="{{url('/login')}}"><button class="btn btn-secondary">Login</button></a>
+                @if(Auth::check())
+                    <!-- @if(auth()->check() && auth()->user()->role->name === 'patient')
+                        <a href="{{url('user-profile')}}"> <button class="btn btn-success">Profile</button></a>
+                        <a href="{{ route('my.booking') }}"> <button class="btn btn-success">My Booking</button></a>
+                        <a href="{{ route('my.prescription') }}"> <button class="btn btn-success">My Prescriptions</button></a>
+                    @endif -->
+                @else
+                    <a href="{{url('/register')}}"> <button class="btn btn-success">Register as Patient</button></a>
+                    <a href="{{url('/login')}}"><button class="btn btn-secondary">Login</button></a>
+                @endif
             </div>
         </div>
     </div>

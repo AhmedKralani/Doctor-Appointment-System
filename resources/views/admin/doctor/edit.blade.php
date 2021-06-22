@@ -112,13 +112,8 @@
                     <div class="form-group">
                         <label for="">Specialist</label>
                         <select name="department" class="form-control">
-                          
-
-                       
-
-
-                            @foreach(['Cardiologist','Family-Physician','Ophthalmologist','Neurologist'] as $department)
-                            <option value="{{$department}}" @if($user->department==$department)selected @endif>{{$department}}</option> 
+                            @foreach(App\Models\Department::all() as $department)
+                                <option value="{{$department->department}}" @if($user->department==$department->department)selected @endif>{{$department->department}}</option> 
                             @endforeach
                         </select>
 
