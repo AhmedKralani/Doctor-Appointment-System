@@ -38,7 +38,7 @@ Route::resource('doctor', 'App\Http\Controllers\DoctorController');
 Route::get('/patients','App\Http\Controllers\PatientlistController@index')->name('patient');
 Route::get('/patients/all','App\Http\Controllers\PatientlistController@allTimeAppointment')->name('all.appointments');
 Route::get('/status/update/{id}','App\Http\Controllers\PatientlistController@toogleStatus')->name('update.status');
-Route::resource('department','DepartmentController');
+Route::resource('department','App\Http\Controllers\DepartmentController');
 
 
 
