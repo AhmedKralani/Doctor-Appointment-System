@@ -35,13 +35,12 @@
             </div>
         @endif
         <div class="card">
-            <div class="card-header"><h3>Add doctor</h3></div>
+            <div class="card-header"><h3>Add Department</h3></div>
             <div class="card-body">
                 <form class="forms-sample" action="{{route('department.store')}}" method="post">@csrf
                     <div class="row">
                         <div class="col-lg-6">
                             <div class="form-group">
-
                             <label for="">Department name</label>
                             <input type="text" name="department" class="form-control @error('department') is-invalid @enderror" placeholder="department name"   value=" {{old('department')}}">
                             @error('department')
@@ -49,12 +48,8 @@
                                     <strong>{{ $message }}</strong>
                                 </span>
                             @enderror
-                        </div>
-                     
+                        </div>              
                        <div class="form-group"> 
-
-
-
                     <button type="submit" class="btn btn-primary mr-2">Submit</button>
                     </div>
                     </div>

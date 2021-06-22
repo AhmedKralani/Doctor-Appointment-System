@@ -68,20 +68,11 @@
 
                             </div>
                         </td>
-                        <td>x</td>
-
                     </tr>
-           
-                    
-
-
-
-                    @endforeach
-                   
+                    @endforeach         
                     @else 
                     <td>No departments to display</td>
-                    @endif
-                
+                    @endif   
                 </tbody>
             </table>
         </div>
