@@ -1,0 +1,64 @@
+[data-theme="dark"] {
+  color: white;
+  background-color:rgb(21,32,43) !important;
+  color: #eee;
+}
+
+[data-theme="dark"] .bg-white {
+  background-color:rgb(21,32,43) !important;
+  color: white;
+}
+[data-theme="dark"] .navbar-brand {
+  background-color: rgb(21,32,43) !important;
+  color: white;
+}
+
+[data-theme="dark"] .vdp-datepicker * {
+  background-color: rgb(21,32,43) !important;
+  color: white;
+}
+
+
+
+[data-theme="dark"] #navbarDropdown {
+  background-color: rgb(21,32,43) !important;
+  
+}
+
+[data-theme="dark"] .navbar {
+  background-color: rgb(21,32,43) !important;
+  color: white;
+}
+[data-theme="dark"] .wrapper {
+  background-color:rgb(21,32,43) !important;
+  color: white;
+}
+
+[data-theme="dark"] .header-top {
+  background-color:rgb(21,32,43) !important;
+  color: white;
+}
+
+[data-theme="dark"] .card-header {
+  background-color:rgb(21,32,43) !important;
+  color: white;
+}
+
+[data-theme="dark"] .row {
+  background-color:rgb(21,32,43) !important;
+  color: white;
+}
+[data-theme="dark"] .card-body {
+  background-color:rgb(21,32,43) !important;
+  color: white;
+}
+
+[data-theme="dark"] .table {
+  background-color:rgb(21,32,43) !important;
+  color: white;
+}
+
+[data-theme="dark"] .card {
+  background-color:rgb(21,32,43) !important;
+  color: white;
+}
