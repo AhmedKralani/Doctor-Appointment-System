@@ -12,6 +12,15 @@
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+        <script src="{{ asset('template/dist/js/dark-mode-switch.js') }}" defer></script>
+    
+        <script src="{{ asset('template/dist/js/ dark-mode-switch.min.js') }}" defer></script>
+
+    <!-- Scripts -->
+  
+   
+
 <!-- date picker-->
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"defer></script>
 
@@ -23,8 +32,15 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link rel="stylesheet" href="{{asset('template/dist/css/theme.min.css')}}">
+    <link href="{{asset('css/app.css')}}" rel="stylesheet">
+  
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+
+    <link href="{{asset('template/dist/css/dark-mode.css')}}" rel="stylesheet">
+       
+            <script src="src/js/vendor/modernizr-2.8.3.min.js"></script>
+    
 
     <!-- date picker-->
 
@@ -34,11 +50,20 @@
 
 </head>
 <body>
+<div class="container d-flex p-3 mx-auto w-100 flex-column">
+    <header class="mb-auto">
+  
+
+          <div class="form-check form-switch">
+            <input type="checkbox" class="form-check-input center" id="darkSwitch">
+            <label class="custom-control-label" for="darkSwitch">Dark Mode</label>
+          </div>
+        </div>
+        </header>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-md">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
+                <a class="navbar-brand" href="{{ url('/') }}">  {{ config('app.name', 'Laravel') }}
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -59,7 +84,7 @@
                         @endif
                         @if(auth()->check()&& auth()->user()->role->name === 'patient')
                             <li class="nav-item">
-                                <a style="color: #fff; font-size:16px; font-weight: bold;" class="nav-link" href="{{ route('my.prescription') }}" style="color: #fff; font-size:16px; font-weight: bold;">{{ __('My Prescriptions') }}</a>
+                                <a style="color: rgb(72 132 220); font-size:16px; font-weight: bold;" class="nav-link" href="{{ route('my.prescription') }}" style="color: rgb(72 132 220); font-size:16px; font-weight: bold;">{{ __('My Prescriptions') }}</a>
                             </li>
                         @endif
                         <!-- Authentication Links -->
@@ -147,5 +172,8 @@
             color: #fff;
         }
     </style>
+    
+ 
+   
 </body>
 </html>
