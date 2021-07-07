@@ -13,6 +13,7 @@ class DoctorController extends Controller
      */
     public function index()
     {
+    
         $users  = User::where('role_id','!=',3)->get();
         return view('admin.doctor.index',compact('users'));
     }
@@ -88,17 +89,18 @@ class DoctorController extends Controller
         $imageName = $user->image;
         $userPassword = $user->password;
         if($request->hasFile('image')){
-            $imageName = (new User)->userAvatar($request);
+            $imageName =(new User)->userAvatar($request);
             unlink(public_path('images/'.$user->image));
         }
         $data['image'] = $imageName;
-        if($request->password) {
+        if($request->password){
             $data['password'] = bcrypt($request->password);
-        } else {
+        }else{
             $data['password'] = $userPassword;
         }
-        $user->update($data);
-        return redirect()->route('doctor.index')->with('message', 'Doctor updated successfully');
+         $user->update($data);
+        return redirect()->route('doctor.index')->with('message','Doctor updated successfully');
+
     }
 
     /**
@@ -137,11 +139,11 @@ class DoctorController extends Controller
 
        ]);
     }
-
-    public function validateUpdate($request,$id) {
-        return  $this->validate($request, [
+    public function validateUpdate($request,$id){
+        return  $this->validate($request,[
             'name'=>'required',
             'email'=>'required|unique:users,email,'.$id,
+          
             'gender'=>'required',
             'education'=>'required',
             'address'=>'required',
@@ -150,6 +152,11 @@ class DoctorController extends Controller
             'image'=>'mimes:jpeg,jpg,png',
             'role_id'=>'required',
             'description'=>'required'
+
        ]);
     }
+   
+
+
+ 
 }
